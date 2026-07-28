@@ -19,3 +19,15 @@ services:
     environment:
       - NODE_ENV=development
     restart: always
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+    env_file:
+      - .env
+    restart: always
